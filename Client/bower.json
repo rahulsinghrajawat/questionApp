@@ -1,0 +1,27 @@
+{
+  "name": "admin-ui",
+  "authors": [
+    "Rajawat <rahul.rajawat@hiteshi.com>"
+  ],
+  "description": "Basic structure of angular app",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.4",
+    "angular-animate": "1.6.4",
+    "angular-route": "1.6.4",
+    "angular-touch": "1.6.4",
+    "jquery": "1.9.1",
+    "bootstrap": "3.3.7"
+
+  }
+}

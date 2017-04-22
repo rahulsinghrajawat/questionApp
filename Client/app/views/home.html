@@ -1,0 +1,57 @@
+<div class="container main_screen_container">
+        <div class="row">
+            <h1 class="text-left" style="color: #67afd0;">ADD NEW CALL</h1>
+            <div class="navbar-form1 navbar-left1">
+                <form class="" id="question-form" role="search" style="height:450px; overflow: auto;">
+                  <div class="form-group" ng-repeat="key in questionKeys" quest-repeat style="border: 1px solid #DDDDDD">
+                    <label class="control-label form-inline12" for="email">{{$index+1}}&nbsp;</label>
+                      <label class="form-inline">
+                        <input type="text" class="form-control" ng-model="questions[key].title" placeholder="How do feel today">
+                      </label>
+                      <label class="control-label form-inline12 select_lable" for="email">&nbsp;A&nbsp;</label>
+                      <select ng-change="getChoice()" ng-model="choiceType" ng-init="choiceType = questions[key].answer_type" >
+                          <option value>Choose Option</option>
+                          <option value="1">Multi-line text</option>
+                          <option value="2">Single Choice</option>
+                          <option value="3">Multiple Choice</option>
+                      </select>
+                      
+
+                      <label class="form-inline"  ng-repeat="field in questions[key].fields" quest-repeat >
+
+                        <textarea class="form-control" ng-if="field.type == 'textarea'" ng-model="field.value"  rows="3" cols="20" ng-if="questions[key].choice == 1"> </textarea>
+                        <input style="width: 300px" ng-if="field.type == 'text'" type="text" ng-model="field.value" class="form-control" placeholder="How do feel today">
+                        <a href ng-if="field.type == 'text'" ng-click="addSubQuestion(key,$index)">+ ADD SUB QUESTION</a>
+                        <div ng-repeat="(subKey,subQuest) in field.subQuestions" >
+                           <label >
+                            <input type="text" class="form-control" ng-model="subQuest.value" placeholder="How do feel today">
+                          </label>
+                          <label class="control-label form-inline12 select_lable" for="email">&nbsp;A&nbsp;</label>
+                          <select  ng-model="subChoiceType" ng-change="getSubQChoice(field)" ng-init="subChoiceType = field.subQuestions[subKey].choice" >
+                              <option value>Choose Option</option>
+                              <option value="1">Multi-line text</option>
+                              <option value="2">Single Choice</option>
+                              <option value="3">Multiple Choice</option>
+                          </select>
+                          
+                          <label   ng-repeat="subField in field.subQuestions[subKey].fields" >
+                            <textarea class="form-control" ng-if="subField.type == 'textarea'"  style="width: 300px" rows="5" cols="20" ng-model="subField.value" > </textarea>
+                            <input style="width: 300px" ng-if="subField.type == 'text'" type="text"  class="form-control" ng-model="subField.value" placeholder="How do feel today">
+                          </label>
+                      </div>
+                      </label>
+
+                      
+                  </div>   
+                         
+                </form>
+            </div>
+            <div class="add_new_call clearfix">
+              <a href ng-click="addNewQuestion()">+ ADD NEW QUESTION</a>
+            </div>            
+            <div class="footer">
+            <button class="btn btn-primary small" ng-click="save()">Save</button>
+            <span class="cancel_button">Cancel</span>
+            </div>            
+        </div>
+    </div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testApp" ng-controller="globalController">
+
+<head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <title>Angular App</title>
+
+    <!-- build:css({.tmp,app}) styles/components.css -->
+    <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- endbuild -->
+</head>
+
+<body>
+    <div ng-view ></div>
+    <div class="comman-loader" ng-if="isLoader">
+      <img src="images/ajax-loader.gif" />
+    </div>
+  <!-- build:js scripts/components.js -->
+  <script src="components/jquery/jquery.min.js"></script>
+  <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="components/angular/angular.min.js"></script> 
+  <script src="components/angular-animate/angular-animate.min.js"></script>
+  <script src="components/angular-route/angular-route.min.js"></script>
+  <script src="components/angular-touch/angular-touch.min.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/constant.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/globalController.js"></script>
+  <script src="scripts/services/service.js"></script>
+  <script src="scripts/directives/directives.js"></script>
+  <!-- endbuild -->
+</body>
+</html>
